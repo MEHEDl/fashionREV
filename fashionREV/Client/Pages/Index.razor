@@ -1,49 +1,15 @@
 ﻿@page "/"
-
-<!--<h1>Fashion is our Passion!</h1>
-
-আপনাকে স্বাগতম!
-
-<SurveyPrompt Title="আমাদের আপনার মতামত জানাতে চান?" />-->
-    <div class="container">
-        <h3>Movie</h3>
-        <!--@foreach (var movie in movies)
-    {
-        <div class="card text-white bg-success mb-3 text-justify" style="max-width: 18rem;">
-            <div class="card-header">@movie.ReleseDate.ToString("dd MMM yyyy")</div>
-            <div class="card-body">
-                <h5 class="card-title">@movie.Title</h5>
-                <p class="card-text">@movie.Description</p>
-            </div>
-        </div>
-    }-->
+<div>
+    <h3>MOVIE</h3>
     <div class="row">
-        @if (movies == null)
-        {
-            <div class="container"><h1  class="jumbotron">কনটেন্ট লোড হচ্ছে....</h1></div>
-        }
-        else
-        {
-            @for (int i = 0; i < movies.Count(); i++)
-            {
-                <div class="col-md-3 m-3 card text-white @(i% 2 != 0? "bg-success": "bg-danger") mb-3 text-justify" style="max-width: 18rem;">
-                    <div class="card-header">@movies[i].ReleseDate.ToString("dd MMM yyyy")</div>
-                    <div class="card-body">
-                        <h5 class="card-title">@((MarkupString)movies[i].Title)</h5>
-                        <p class="card-text">@movies[i].Description</p>
-                    </div>
-                </div>
-            }
-        }
-
+        <MoviesList Movies="movies" />
     </div>
-
-    </div>
-@code{
-    List<Movie> movies;
+</div>
+@code{ 
+    private List<Movie> movies;
     protected async override Task OnInitializedAsync()
     {
-        await Task.Delay(4000);
+        await Task.Delay(1000);
         movies = new List<Movie>
         {
             new Movie(){ Title = "<b>Spider-Man: Far From Home</b>", ReleseDate = new DateTime(2019, 7, 2), Description = "স্পাইডার-ম্যান হল একটি কাল্পনিক কমিক চরিত্র। এর স্রষ্টা হলেন মার্ভেল কমিকসের প্রধান সম্পাদক, লেখক স্ট্যান লি ও কার্টুনিস্ট স্টিভ ডিটকো। "},

@@ -1,0 +1,24 @@
+﻿@if (Movies == null)
+{
+    <img src="https://familybuildinginmaine.com/images/loading-gears-animation-10.gif?crc=246343103" />
+    @*<div class="container"><h1 class="jumbotron">কনটেন্ট লোড হচ্ছে....</h1></div>*@
+}
+else if (Movies.Count == 0)
+{
+    <div class="container"><h1 class="jumbotron text-info">দেখানোর মত কোনো মুভি নেই।</h1></div>
+}
+else
+{
+<div class="row">
+    @foreach (var movie in Movies)
+    {
+        <IndividualMovie Movie="movie" />
+    }
+</div>
+}
+
+@code {
+        [Parameter] public List<Movie> Movies{ get; set; }
+   
+
+}

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fashionREV.Server", "fashionREV\Server\fashionREV.Server.csproj", "{1D305BFA-3B06-4434-8462-6B4A55C6E8E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fashionREV.Server", "fashionREV\Server\fashionREV.Server.csproj", "{1D305BFA-3B06-4434-8462-6B4A55C6E8E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fashionREV.Client", "fashionREV\Client\fashionREV.Client.csproj", "{F54B0D98-57A2-49A1-9636-58E47A5D353E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fashionREV.Client", "fashionREV\Client\fashionREV.Client.csproj", "{F54B0D98-57A2-49A1-9636-58E47A5D353E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fashionREV.Shared", "fashionREV\Shared\fashionREV.Shared.csproj", "{837F6044-59B5-4CF4-94DE-9452B7E2F0B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fashionREV.Shared", "fashionREV\Shared\fashionREV.Shared.csproj", "{837F6044-59B5-4CF4-94DE-9452B7E2F0B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
