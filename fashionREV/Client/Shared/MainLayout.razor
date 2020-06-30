@@ -1,0 +1,32 @@
+﻿@inherits LayoutComponentBase
+
+<div class="sidebar">
+    <NavMenu />
+</div>
+
+<div class="main">
+    <div class="top-row px-4">
+        <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
+    </div>
+
+    <div class="content px-4">
+        @Body
+    </div>
+    <!--
+        <div class="content px-4">
+           <p>স্বাগতম, @StringUtilities.Name(name) </p>
+            <button @onclick="@WriteInLog">ক্লিক</button>
+            (() => Console.WriteLine("ক্লিক করা হয়েছে!"))
+    </div>-->
+</div>
+
+@code{
+    //string name = "MEHEDI HASAN";
+    string name = "Mehedi";
+    //string Name(string value) => value.ToUpper();
+
+    void WriteInLog()
+    {
+        Console.WriteLine("ক্লিক করা হয়েছে!");
+    }
+}

@@ -1,0 +1,57 @@
+﻿@page "/"
+
+<!--<h1>Fashion is our Passion!</h1>
+
+আপনাকে স্বাগতম!
+
+<SurveyPrompt Title="আমাদের আপনার মতামত জানাতে চান?" />-->
+    <div class="container">
+        <h3>Movie</h3>
+        <!--@foreach (var movie in movies)
+    {
+        <div class="card text-white bg-success mb-3 text-justify" style="max-width: 18rem;">
+            <div class="card-header">@movie.ReleseDate.ToString("dd MMM yyyy")</div>
+            <div class="card-body">
+                <h5 class="card-title">@movie.Title</h5>
+                <p class="card-text">@movie.Description</p>
+            </div>
+        </div>
+    }-->
+    <div class="row">
+        @if (movies == null)
+        {
+            <div class="container"><h1  class="jumbotron">কনটেন্ট লোড হচ্ছে....</h1></div>
+        }
+        else
+        {
+            @for (int i = 0; i < movies.Count(); i++)
+            {
+                <div class="col-md-3 m-3 card text-white @(i% 2 != 0? "bg-success": "bg-danger") mb-3 text-justify" style="max-width: 18rem;">
+                    <div class="card-header">@movies[i].ReleseDate.ToString("dd MMM yyyy")</div>
+                    <div class="card-body">
+                        <h5 class="card-title">@((MarkupString)movies[i].Title)</h5>
+                        <p class="card-text">@movies[i].Description</p>
+                    </div>
+                </div>
+            }
+        }
+
+    </div>
+
+    </div>
+@code{
+    List<Movie> movies;
+    protected async override Task OnInitializedAsync()
+    {
+        await Task.Delay(4000);
+        movies = new List<Movie>
+        {
+            new Movie(){ Title = "<b>Spider-Man: Far From Home</b>", ReleseDate = new DateTime(2019, 7, 2), Description = "স্পাইডার-ম্যান হল একটি কাল্পনিক কমিক চরিত্র। এর স্রষ্টা হলেন মার্ভেল কমিকসের প্রধান সম্পাদক, লেখক স্ট্যান লি ও কার্টুনিস্ট স্টিভ ডিটকো। "},
+            new Movie(){ Title = "<i>Moana</i>", ReleseDate = new DateTime(2016, 11,23), Description="মোয়ানা একটি ২০১৬ মার্কিন থ্রিডি কম্পিউটার অ্যানিমেটকৃত সঙ্গীত ও রোমাঞ্ঝধর্মী চলচ্চিত্র। এটি ডিজনির ৫৬ তম অ্যানিমেশন চলচ্চিত্র। এর পরিচালক রন ক্লেমেন্টস এবং জন মুস্কার।"},
+            new Movie(){ Title = "Inception", ReleseDate = new DateTime(2010, 7, 16), Description = "ইনসেপশন ২০১০ সালে মুক্তিপ্রাপ্ত বিখ্যাত পরিচালক ক্রিস্টোফার নোলান রচিত, সহ-প্রযোজিত ও পরিচালিত একটি মৌলিক অ্যাকশনধর্মী সায়েন্স ফিকশন চলচ্চিত্র। "},
+            new Movie(){ Title = "Spider-Man: Far From Home", ReleseDate = new DateTime(2019, 7, 2), Description = "স্পাইডার-ম্যান হল একটি কাল্পনিক কমিক চরিত্র। এর স্রষ্টা হলেন মার্ভেল কমিকসের প্রধান সম্পাদক, লেখক স্ট্যান লি ও কার্টুনিস্ট স্টিভ ডিটকো। স্পাইডারম্যান প্রথম প্রকাশিত হয় ১৯৬২ সালের আগস্ট মাসে এমেইজিং ফ্যান্টাসির ১৫তম সংখ্যায়। তাকে দেখানো হয় একজন টিনএজার হিসেবে যে তার পিতৃব্য আঙ্কেল বেন ও আন্ট মে এর ঘরে বেড়ে উঠেছে।"},
+            new Movie(){ Title = "Moana", ReleseDate = new DateTime(2016, 11,23), Description="মোয়ানা একটি ২০১৬ মার্কিন থ্রিডি কম্পিউটার অ্যানিমেটকৃত সঙ্গীত ও রোমাঞ্ঝধর্মী চলচ্চিত্র। এর প্রযোজনা প্রতিষ্ঠান ওয়াল্ট ডিজনি অ্যানিমেশন স্টুডিওস এবং এটি ওয়াল্ট ডিজনি পিকচার্স কর্তৃক মুক্তি পায়। এটি ডিজনির ৫৬ তম অ্যানিমেশন চলচ্চিত্র। এর পরিচালক রন ক্লেমেন্টস এবং জন মুস্কার।"},
+            new Movie(){ Title = "Inception", ReleseDate = new DateTime(2010, 7, 16), Description = "ইনসেপশন ২০১০ সালে মুক্তিপ্রাপ্ত বিখ্যাত পরিচালক ক্রিস্টোফার নোলান রচিত, সহ-প্রযোজিত ও পরিচালিত একটি মৌলিক অ্যাকশনধর্মী সায়েন্স ফিকশন চলচ্চিত্র। চলচ্চিত্রটি ব্রিটিশ-আমেরিকান যৌথ প্রযোজনায় নির্মিত। চলচ্চিত্রটিতে প্রধান চরিত্র ডম কবের ভূমিকায় অভিনয় করেছেন লিওনার্দো ডি ক্যাপ্রিও। "},
+        };
+    }
+}

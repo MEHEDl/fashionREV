@@ -1,0 +1,31 @@
+﻿@page "/Category"
+
+<h1>ক্যাটাগরী সিলেক্ট করুন</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<hr />
+
+<div class="content px-4">
+    <p>স্বাগতম, @StringUtilities.Name(name) </p>
+    <button @onclick="@WriteInLog">ক্লিক</button>
+    <!--(() => Console.WriteLine("ক্লিক করা হয়েছে!"))-->
+</div>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+    //string name = "MEHEDI HASAN";
+    string name = "Mehedi";
+    //string Name(string value) => value.ToUpper();
+
+    void WriteInLog()
+    {
+        Console.WriteLine("ক্লিক করা হয়েছে!");
+    }
+}
