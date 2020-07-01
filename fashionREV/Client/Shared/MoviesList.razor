@@ -9,16 +9,21 @@ else if (Movies.Count == 0)
 }
 else
 {
-<div class="row">
-    @foreach (var movie in Movies)
-    {
-        <IndividualMovie Movie="movie" />
-    }
+<div>
+    <div> <h5><input type="checkbox" @onclick="@(()=> displayButtons = !displayButtons)" /> View Button </h5></div>
+    
 </div>
+    <div class="row">
+
+        @foreach (var movie in Movies)
+        {
+            <IndividualMovie Movie="movie" DisplayButtons="displayButtons" />
+        }
+    </div>
 }
 
 @code {
-        [Parameter] public List<Movie> Movies{ get; set; }
-   
+    [Parameter] public List<Movie> Movies { get; set; }
+    bool displayButtons = false;
 
 }

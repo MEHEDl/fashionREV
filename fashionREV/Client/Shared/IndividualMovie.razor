@@ -4,15 +4,16 @@
             <h3 class="card-title text-danger">@Movie.Title</h3>
             <h5 class="card-title">@Movie.ReleseDate.ToString("dd MMM yyyy")</h5>
             <p class="card-text">@Movie.Description</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-            <button @onclick="Delete" class="btn btn-danger">মুছে ফেলুন</button>
+               @if (DisplayButtons) { 
+                <button @onclick="Delete" class="btn btn-danger">মুছে ফেলুন</button>
+               }
         </div>
     </div>
 </div>
 
 @code {
     [Parameter] public Movie Movie { get;set; }
-
+    [Parameter] public bool DisplayButtons { get; set; } = false;
     void Delete()
     {
         Console.WriteLine($"Deleting {Movie.Title}");
