@@ -10,14 +10,16 @@ else if (Movies.Count == 0)
 else
 {
 <div>
-    <div> <h5><input type="checkbox" @onclick="@(()=> displayButtons = !displayButtons)" /> View Button </h5></div>
+    @*<div> <h5><input type="checkbox" @onclick="@(()=> displayButtons = !displayButtons)" /> View Button </h5></div>*@
+    
+    <div> <h5><input type="checkbox" @bind="displayButtons" /> View Button </h5></div>
     
 </div>
     <div class="row">
 
         @foreach (var movie in Movies)
         {
-            <IndividualMovie Movie="movie" DisplayButtons="displayButtons" />
+            <IndividualMovie Movie="movie" DisplayButtons="displayButtons" DeleteMovie="DeleteMovie"/>
         }
     </div>
 }
@@ -25,5 +27,10 @@ else
 @code {
     [Parameter] public List<Movie> Movies { get; set; }
     bool displayButtons = false;
+
+    private void DeleteMovie(Movie movie)
+    {
+        Movies.Remove(movie);
+    }
 
 }
