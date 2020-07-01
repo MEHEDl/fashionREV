@@ -1,13 +1,20 @@
 ﻿<div class="col-4">
-    <div class="card text-white bg-success mb-3 text-justify" style="max-width: 18rem;">
-        <div class="card-header">@Movie.ReleseDate.ToString("dd MMM yyyy")</div>
+    <div class="card" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title">@Movie.Title</h5>
+            <h3 class="card-title text-danger">@Movie.Title</h3>
+            <h5 class="card-title">@Movie.ReleseDate.ToString("dd MMM yyyy")</h5>
             <p class="card-text">@Movie.Description</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <button @onclick="Delete" class="btn btn-danger">মুছে ফেলুন</button>
         </div>
     </div>
 </div>
 
 @code {
     [Parameter] public Movie Movie { get;set; }
+
+    void Delete()
+    {
+        Console.WriteLine($"Deleting {Movie.Title}");
+    }
 }
